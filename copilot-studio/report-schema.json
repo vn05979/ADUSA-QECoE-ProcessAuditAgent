@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Process Audit Agent report",
+  "type": "object",
+  "required": [
+    "project",
+    "summary",
+    "artifact_inventory",
+    "findings",
+    "gap_analysis",
+    "recommendations",
+    "audit_limitations"
+  ],
+  "properties": {
+    "project": {
+      "type": "object",
+      "required": ["name", "type", "sharepoint_location", "audit_date", "checklist", "status"],
+      "properties": {
+        "name": { "type": "string" },
+        "type": { "enum": ["Waterfall", "Audit (Agile)"] },
+        "sharepoint_location": { "type": "string", "format": "uri" },
+        "audit_date": { "type": "string", "format": "date-time" },
+        "checklist": { "type": "string" },
+        "status": {
+          "type": "object",
+          "required": [
+            "date",
+            "current_phase",
+            "phase_dates",
+            "test_plan",
+            "evidence_excerpt",
+            "limitations"
+          ],
+          "properties": {
+            "date": { "type": "string", "format": "date" },
+            "current_phase": { "type": ["string", "null"] },
+            "phase_dates": { "type": ["string", "null"] },
+            "test_plan": { "type": ["string", "null"] },
+            "evidence_excerpt": { "type": ["string", "null"] },
+            "limitations": { "type": "array", "items": { "type": "string" } }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "object",
+      "required": [
+        "total_checks",
+        "passed",
+        "failed",
+        "partial",
+        "not_applicable",
+        "compliance_percentage",
+        "compliance_formula"
+      ],
+      "properties": {
+        "total_checks": { "type": "integer", "minimum": 0 },
+        "passed": { "type": "integer", "minimum": 0 },
+        "failed": { "type": "integer", "minimum": 0 },
+        "partial": { "type": "integer", "minimum": 0 },
+        "not_applicable": { "type": "integer", "minimum": 0 },
+        "compliance_percentage": {
+          "type": ["number", "null"],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "compliance_formula": {
+          "const": "passed / (passed + failed) * 100; partial and not_applicable are excluded"
+        }
+      },
+      "additionalProperties": false
+    },
+    "artifact_inventory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["category", "file_count", "evidence"],
+        "properties": {
+          "category": { "type": "string" },
+          "file_count": { "type": "integer", "minimum": 0 },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["file_name", "sharepoint_url"],
+              "properties": {
+                "file_name": { "type": "string" },
+                "sharepoint_url": { "type": "string", "format": "uri" }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "criterion_id",
+          "audit_item",
+          "status",
+          "evidence_assessment",
+          "evidence",
+          "observation",
+          "recommendation"
+        ],
+        "properties": {
+          "criterion_id": { "type": "string" },
+          "audit_item": { "type": "string" },
+          "status": {
+            "enum": ["Pass", "Fail", "Partial Compliance", "Not Applicable"]
+          },
+          "evidence_assessment": {
+            "enum": ["Evidence Found", "Missing Evidence", "Not Applicable"]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["file_name", "sharepoint_url", "relevance"],
+              "properties": {
+                "file_name": { "type": "string" },
+                "sharepoint_url": { "type": "string", "format": "uri" },
+                "location": { "type": ["string", "null"] },
+                "excerpt": { "type": ["string", "null"] },
+                "relevance": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "observation": { "type": "string" },
+          "recommendation": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    },
+    "gap_analysis": {
+      "type": "object",
+      "required": [
+        "missing_artifacts",
+        "missing_approvals",
+        "missing_test_evidence",
+        "process_deviations",
+        "documentation_gaps"
+      ],
+      "properties": {
+        "missing_artifacts": { "type": "array", "items": { "type": "string" } },
+        "missing_approvals": { "type": "array", "items": { "type": "string" } },
+        "missing_test_evidence": { "type": "array", "items": { "type": "string" } },
+        "process_deviations": { "type": "array", "items": { "type": "string" } },
+        "documentation_gaps": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "recommendations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["priority", "action", "related_criteria"],
+        "properties": {
+          "priority": {
+            "enum": ["High Priority", "Medium Priority", "Low Priority"]
+          },
+          "action": { "type": "string" },
+          "related_criteria": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "audit_limitations": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": false
+}

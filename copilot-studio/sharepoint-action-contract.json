@@ -1,0 +1,50 @@
+{
+  "name": "CollectSharePointArtifacts",
+  "purpose": "Read-only discovery and evidence collection for a single project audit.",
+  "inputs": {
+    "project_name": {
+      "type": "string",
+      "required": true
+    },
+    "project_type": {
+      "type": "string",
+      "enum": ["Waterfall", "Audit (Agile)"],
+      "required": true
+    },
+    "sharepoint_location": {
+      "type": "string",
+      "format": "uri",
+      "required": true
+    }
+  },
+  "outputs": {
+    "accessible": "boolean",
+    "enumeration_complete": "boolean",
+    "artifact_count": "integer",
+    "artifacts": [
+      {
+        "file_name": "string",
+        "artifact_category": "string|null",
+        "sharepoint_url": "string",
+        "folder_path": "string",
+        "file_type": "string",
+        "last_modified": "string|null",
+        "extracted_text_or_relevant_excerpt": "string|null",
+        "extraction_status": "read|unsupported|failed",
+        "error": "string|null"
+      }
+    ],
+    "folders": ["string"],
+    "warnings": ["string"]
+  },
+  "implementation_constraints": [
+    "Use organizational authentication and a read-only SharePoint connection.",
+    "Do not modify, upload, move, or delete any SharePoint content.",
+    "Enumerate folders and files with pagination and support repositories up to 5,000 artifacts.",
+    "Return explicit access, pagination, and extraction errors; do not represent failures as successful empty results.",
+    "Return source URLs and paths for every evidence item so findings remain auditable.",
+    "Extract or retrieve sufficient document content for checklist evaluation; file names alone are not evidence.",
+    "Classify relevant artifacts where possible, including Test Strategy, Test Plan, Test Summary, Sign-off Documents, QAgile Reports, Jira/ALM Screenshots, CTD Evidence, IQPP Evidence, Defect Reports, TRR Documents, NFT Assessment Documents, Meeting Minutes, and Lessons Learned Documents.",
+    "Keep action responses within Copilot Studio limits. If content must be processed in batches, expose batch completion and coverage in the response."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Process Audit Agent",
+  "description": "Audits ADUSA Waterfall and Audit (Agile) project evidence in SharePoint against the QA CoE checklist, with cited findings, gaps, and prioritized recommendations.",
+  "instructions_file": "agent-instructions.md",
+  "knowledge_sources": [
+    "checklists.json"
+  ],
+  "actions": [
+    "CollectSharePointArtifacts"
+  ],
+  "conversation_starters": [
+    "Run a Waterfall process audit. I will provide the project name and SharePoint location.",
+    "Run an Audit (Agile) process audit. I will provide the project name and SharePoint location."
+  ]
+}

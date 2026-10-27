@@ -1,0 +1,216 @@
+{
+  "source": "QxYYYY DomainName QA CoE Audit Checklist.xlsx",
+  "source_sheets": {
+    "waterfall": "Audit Checklist - Waterfall",
+    "audit_agile": "Audit Checklist - Agile"
+  },
+  "project_type_mapping": {
+    "Waterfall": "waterfall",
+    "Audit (Agile)": "audit_agile",
+    "Audit": "audit_agile"
+  },
+  "checklists": {
+    "waterfall": {
+      "display_name": "Waterfall",
+      "criteria": [
+        {
+          "id": "WF-QC-01",
+          "category": "Quality Control",
+          "criterion": "Is project scope defined and documented?",
+          "evidence_guidance": "Verify the test strategy and/or test plan."
+        },
+        {
+          "id": "WF-QC-02",
+          "category": "Quality Control",
+          "criterion": "Was project kick-off conducted?",
+          "evidence_guidance": "Look for the project kick-off meeting invitation or meeting minutes and search all folders. If neither is present, mark Fail regardless of a kick-off date recorded in the RFS."
+        },
+        {
+          "id": "WF-QC-03",
+          "category": "Quality Control",
+          "criterion": "Are QA entry and exit criteria identified?",
+          "evidence_guidance": "Review the test plan."
+        },
+        {
+          "id": "WF-QC-04",
+          "category": "Quality Control",
+          "criterion": "Are lessons learned identified/documented?",
+          "evidence_guidance": "Review lessons-learned documentation."
+        },
+        {
+          "id": "WF-QC-05",
+          "category": "Quality Control",
+          "criterion": "Was project sign-off and/or a test summary created?",
+          "evidence_guidance": "Review the project sign-off and test summary artifacts."
+        },
+        {
+          "id": "WF-QA-01",
+          "category": "Quality Audit",
+          "criterion": "Is the RFS complete and approved?",
+          "evidence_guidance": "Review the RFS and approval. Include holidays and vacation plans shown in QAgile screenshots."
+        },
+        {
+          "id": "WF-QA-02",
+          "category": "Quality Audit",
+          "criterion": "Does the SharePoint RBS structure contain the required folders?",
+          "evidence_guidance": "Verify cumulative folders through the current phase returned by Project Status Identifier: Test Initiation; then Test Planning; then Test Design; then Test Execution; then Test Closure. Require only Test Initiation at Test Initiation, add each preceding/current phase folder at later phases, and do not require future-phase folders."
+        },
+        {
+          "id": "WF-QA-03",
+          "category": "Quality Audit",
+          "criterion": "Are test cases optimized using CTD best practices?",
+          "evidence_guidance": "Use IQPP screenshots as evidence."
+        },
+        {
+          "id": "WF-QA-04",
+          "category": "Quality Audit",
+          "criterion": "Are requirements uploaded and linked to test cases?",
+          "evidence_guidance": "Review screenshots showing uploaded requirements and test-case links."
+        },
+        {
+          "id": "WF-QA-05",
+          "category": "Quality Audit",
+          "criterion": "Are CTD and automated test cases uploaded in the test management tool?",
+          "evidence_guidance": "Review ALM or Jira screenshots."
+        },
+        {
+          "id": "WF-QA-06",
+          "category": "Quality Audit",
+          "criterion": "Are QAgile entries present for CTD and automation jobs and execution?",
+          "evidence_guidance": "Review the supplied screenshot evidence."
+        },
+        {
+          "id": "WF-QA-07",
+          "category": "Quality Audit",
+          "criterion": "Were negative test scenarios identified and negative testing performed?",
+          "evidence_guidance": "The source checklist states a target of 5%. Verify the calculation only when the evidence provides a denominator."
+        },
+        {
+          "id": "WF-QA-08",
+          "category": "Quality Audit",
+          "criterion": "Was a regression folder created in ALM or Jira?",
+          "evidence_guidance": "Review the ALM or Jira project structure."
+        },
+        {
+          "id": "WF-QA-09",
+          "category": "Quality Audit",
+          "criterion": "Was the test-case and QAgile archival process followed?",
+          "evidence_guidance": "Review evidence of the archival process."
+        },
+        {
+          "id": "WF-QA-10",
+          "category": "Quality Audit",
+          "criterion": "Is defect-closure information complete?",
+          "evidence_guidance": "For closed defects, validate Defect Resolution, Defect Type/Reason, and Application Name. Check that UAT and rejected defects have correct data."
+        },
+        {
+          "id": "WF-QA-11",
+          "category": "Quality Audit",
+          "criterion": "Does the TRR address risks, assumptions, issues, and defects?",
+          "evidence_guidance": "Review the TRR."
+        },
+        {
+          "id": "WF-QA-12",
+          "category": "Quality Audit",
+          "criterion": "Was the NFT team engaged?",
+          "evidence_guidance": "Evaluate Security, Penetration, and Performance engagement."
+        },
+        {
+          "id": "WF-QA-13",
+          "category": "Quality Audit",
+          "criterion": "Is the test case library maintained?",
+          "evidence_guidance": "If a Master Test Case Library is visibly present in the evidence, mark Pass; no additional proof of maintenance is required."
+        }
+      ]
+    },
+    "audit_agile": {
+      "display_name": "Audit (Agile)",
+      "criteria": [
+        {
+          "id": "AG-QA-01",
+          "category": "Quality Audit",
+          "criterion": "Has the RFS been reviewed?",
+          "evidence_guidance": "Review the RFS in QAgile."
+        },
+        {
+          "id": "AG-QA-02",
+          "category": "Quality Audit",
+          "criterion": "Are test scope and test entrance-criteria assumptions defined for each release or sprint?",
+          "evidence_guidance": "Review the test plan or a Confluence page covering scope and validations for all sprints. Test plan content may vary based on grooming sessions."
+        },
+        {
+          "id": "AG-QA-03",
+          "category": "Quality Audit",
+          "criterion": "Are optimized test cases uploaded to Jira under the relevant project key?",
+          "evidence_guidance": "Best practices: use Zephyr to create a test cycle, create a relevant folder based on build/release, and upload or write test cases as needed."
+        },
+        {
+          "id": "AG-QA-04",
+          "category": "Quality Audit",
+          "criterion": "Is requirement traceability maintained?",
+          "evidence_guidance": "Verify that test cases are linked to user stories."
+        },
+        {
+          "id": "AG-QA-05",
+          "category": "Quality Audit",
+          "criterion": "Are negative test scenarios verified?",
+          "evidence_guidance": "Review the CTD model."
+        },
+        {
+          "id": "AG-QA-06",
+          "category": "Quality Audit",
+          "criterion": "Are regression test cases maintained according to the audit criteria?",
+          "evidence_guidance": "Verify a cycle named '<Application Name> Regression'; all regression cases are in that cycle; cases are pulled from it for cycles needing regression execution; and the application name matches the QAgile all-application list."
+        },
+        {
+          "id": "AG-QA-07",
+          "category": "Quality Audit",
+          "criterion": "Are old, outdated, or inactive test cases labeled as archived?",
+          "evidence_guidance": "Review test-case labels."
+        },
+        {
+          "id": "AG-QA-08",
+          "category": "Quality Audit",
+          "criterion": "Are defects linked and closed with appropriate root cause, and are requirement ambiguities identified?",
+          "evidence_guidance": "Verify defects link to user stories, failed test cases link to defects, closed defects have an appropriate root cause, and defects resulting from requirement ambiguities are identified."
+        },
+        {
+          "id": "AG-QA-09",
+          "category": "Quality Audit",
+          "criterion": "Is the test summary/test sign-off document complete?",
+          "evidence_guidance": "Verify the defect summary and any risks, issues, or requirement ambiguities."
+        },
+        {
+          "id": "AG-QA-10",
+          "category": "Quality Audit",
+          "criterion": "Was the NFT team engaged, or is an exception status documented?",
+          "evidence_guidance": "Evaluate Security, Penetration, and Performance engagement. If not engaged, provide the exception status."
+        },
+        {
+          "id": "AG-QA-11",
+          "category": "Quality Audit",
+          "criterion": "Is the test case library maintained according to the audit criteria?",
+          "evidence_guidance": "Verify a cycle named 'Master Test Case Library', a folder named for the application, and valid test cases stored under that application."
+        },
+        {
+          "id": "AG-QA-12",
+          "category": "Quality Audit",
+          "criterion": "Are test cases automated?",
+          "evidence_guidance": "Review automation evidence."
+        },
+        {
+          "id": "AG-QA-13",
+          "category": "Quality Audit",
+          "criterion": "Are test cases optimized using CTD best practices?",
+          "evidence_guidance": "Use IQPP screenshots as evidence."
+        },
+        {
+          "id": "AG-QA-14",
+          "category": "Quality Audit",
+          "criterion": "Are QAgile entries present for CTD and automation jobs and execution?",
+          "evidence_guidance": "Review the supplied screenshot evidence."
+        }
+      ]
+    }
+  }
+}
