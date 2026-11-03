@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="step">Step 2 of 2</div>
+  <h2>Project artifacts</h2>
+  <p>Project: <strong>{{ project_name }}</strong></p>
+
+  {% if submitted %}
+    <div class="success">{{ submitted.type }} received: {{ submitted.value }}</div>
+  {% endif %}
+
+  <form method="post" enctype="multipart/form-data" novalidate>
+    {% csrf_token %}
+    <label>{{ form.source.label }}</label>
+    <div class="options">
+      {% for radio in form.source %}
+        <label for="{{ radio.id_for_label }}">{{ radio.tag }}{{ radio.choice_label }}</label>
+      {% endfor %}
+    </div>
+    {{ form.source.errors }}
+
+    <div class="field" id="sharepoint-field">
+      <label for="{{ form.sharepoint_url.id_for_label }}">{{ form.sharepoint_url.label }}</label>
+      {{ form.sharepoint_url }}
+      {{ form.sharepoint_url.errors }}
+    </div>
+
+    <div class="field" id="zip-field">
+      <label for="{{ form.zip_file.id_for_label }}">{{ form.zip_file.label }}</label>
+      {{ form.zip_file }}
+      {{ form.zip_file.errors }}
+    </div>
+
+    <div class="actions">
+      <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
+
+  <script>
+    (function () {
+      const radios = document.querySelectorAll('input[name="source"]');
+      const sp = document.getElementById("sharepoint-field");
+      const zip = document.getElementById("zip-field");
+      function toggle() {
+        const selected = document.querySelector('input[name="source"]:checked');
+        const value = selected ? selected.value : "sharepoint";
+        sp.classList.toggle("hidden", value !== "sharepoint");
+        zip.classList.toggle("hidden", value !== "zip");
+      }
+      radios.forEach(r => r.addEventListener("change", toggle));
+      toggle();
+    })();
+  </script>
+{% endblock %}

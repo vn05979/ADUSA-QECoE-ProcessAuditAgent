@@ -1,5 +1,7 @@
 # Process Audit Agent
 
+Run the app -> py ui\app.py runserver
+
 Authoring assets for the ADUSA QE Process Audit Agent, intended for Microsoft
 Copilot Studio. The agent audits Waterfall and Audit (Agile) projects against
 the supplied `QxYYYY DomainName QA CoE Audit Checklist.xlsx` workbook.

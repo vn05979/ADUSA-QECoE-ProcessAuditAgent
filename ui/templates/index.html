@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="step">Step 1 of 2</div>
+  <h2>Project details</h2>
+  <form method="post" novalidate>
+    {% csrf_token %}
+    <div class="field">
+      <label for="{{ form.project_name.id_for_label }}">{{ form.project_name.label }}</label>
+      {{ form.project_name }}
+      {{ form.project_name.errors }}
+    </div>
+    <div class="actions">
+      <span></span>
+      <button type="submit" class="btn">Next</button>
+    </div>
+  </form>
+{% endblock %}
