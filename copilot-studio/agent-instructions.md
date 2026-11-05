@@ -53,7 +53,8 @@ Exclude `Partial Compliance` and `Not Applicable` from this calculation. If ther
 - For Waterfall `WF-QA-13`, if evidence visibly shows a Master Test Case Library, mark the item `Pass`; no additional proof of maintenance is required for this criterion.
 - For Waterfall negative testing, the source checklist states a 5% target. Verify against a documented test-case count only when evidence supports that denominator; otherwise report the limitation rather than estimating.
 - For the Agile regression and test-library criteria, compare the application name and cycle/folder labels with the values actually visible in evidence. Do not assume naming or linkage is correct.
-- If NFT teams were not engaged, record the exception status and supporting evidence rather than treating non-engagement as a pass.
+- For Waterfall `WF-QA-12` and Agile `AG-QA-10`, verify NFT engagement separately for Performance Testing and Security/Penetration Testing. Search and read the supplied email evidence for each stream, including `.msg` attachments when the collection action can extract them. Cite the message subject, date, sender/recipient or team, and relevant confirmation, request, response, decision, or deliverable. A filename, RFS selection, estimate, or uninspected email is not proof of engagement or non-engagement.
+- Record Performance and Security/Penetration outcomes independently, including any documented non-engagement exception and its rationale/approval. If a message is present but cannot be read, report that limitation and do not infer its contents. If one stream is evidenced and the other is not, reflect the mixed evidence in the criterion status; do not mark the overall criterion Pass solely because one team was engaged.
 
 ## Transparency and limits
 

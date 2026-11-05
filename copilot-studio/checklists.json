@@ -113,7 +113,7 @@
           "id": "WF-QA-12",
           "category": "Quality Audit",
           "criterion": "Was the NFT team engaged?",
-          "evidence_guidance": "Evaluate Security, Penetration, and Performance engagement."
+          "evidence_guidance": "Verify Performance Testing and Security/Penetration Testing engagement separately using the supplied email evidence. Read the message contents and cite the subject, date, sender/recipient or team, and relevant request, response, decision, or deliverable. A filename, RFS selection, estimate, or unreadable email is not proof of engagement or non-engagement. Record any non-engagement exception and its rationale/approval; report unreadable-message limitations without inferring contents."
         },
         {
           "id": "WF-QA-13",
@@ -184,7 +184,7 @@
           "id": "AG-QA-10",
           "category": "Quality Audit",
           "criterion": "Was the NFT team engaged, or is an exception status documented?",
-          "evidence_guidance": "Evaluate Security, Penetration, and Performance engagement. If not engaged, provide the exception status."
+          "evidence_guidance": "Verify Performance Testing and Security/Penetration Testing engagement separately using the supplied email evidence. Read the message contents and cite the subject, date, sender/recipient or team, and relevant request, response, decision, or deliverable. A filename, RFS selection, estimate, or unreadable email is not proof of engagement or non-engagement. If not engaged, provide the exception status and its rationale/approval; report unreadable-message limitations without inferring contents."
         },
         {
           "id": "AG-QA-11",
