@@ -2,11 +2,11 @@
 
 Run:  python ui/app.py runserver
 """
+import re
 import sys
 import zipfile
 from datetime import datetime
 from pathlib import Path
-from urllib.parse import urlparse
 
 from django.conf import settings
 from django.core.management import execute_from_command_line
@@ -50,13 +50,15 @@ class ProjectForm(forms.Form):
     project_name = forms.CharField(
         label="Project name",
         max_length=200,
-        widget=forms.TextInput(attrs={"placeholder": "Enter the project name", "autofocus": True}),
+        widget=forms.TextInput(attrs={"placeholder": "PRJ followed by 5 digits (e.g., PRJ12345)", "autofocus": True}),
     )
 
     def clean_project_name(self):
         name = self.cleaned_data["project_name"].strip()
         if not name:
             raise forms.ValidationError("Project name is required.")
+        if not re.fullmatch(r"PRJ[0-9]{5}", name):
+            raise forms.ValidationError("Enter a project name in the format PRJXXXXX (PRJ followed by 5 digits).")
         return name
 
 
@@ -88,10 +90,11 @@ class SourceForm(forms.Form):
             url = cleaned.get("sharepoint_url")
             if not url:
                 self.add_error("sharepoint_url", "Please enter the SharePoint URL.")
-            else:
-                parsed = urlparse(url)
-                if parsed.scheme != "https" or not (parsed.hostname or "").endswith(".sharepoint.com"):
-                    self.add_error("sharepoint_url", "Enter a valid https://<tenant>.sharepoint.com URL.")
+            elif not url.startswith("https://aholddelhaize.sharepoint.com/sites/RBSQA/"):
+                self.add_error(
+                    "sharepoint_url",
+                    "Enter a URL starting with https://aholddelhaize.sharepoint.com/sites/RBSQA/.",
+                )
         elif source == self.ZIP:
             upload = cleaned.get("zip_file")
             if not upload:
